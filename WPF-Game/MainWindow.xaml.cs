@@ -16,63 +16,57 @@ using System.Windows.Threading;
 
 namespace WPF_Game
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
 
-        // create a new instance of the dispatcher timer class called gametimer
-        DispatcherTimer gameTimer = new DispatcherTimer();
 
         // create new Rect class instance called player hit box and enemy hit box
         Rect playerHitBox;
         Rect enemyHitBox;
 
-        // game over boolean
-        bool gameover = false;
-        // make a sprite int double variable, this will be used to swap the sprites for player
-        double spriteInt = 0;
 
-        // make three image brush instances called player sprite, background sprite and enemy sprite
         ImageBrush playerSprite = new ImageBrush();
         ImageBrush backgroundSprite = new ImageBrush();
-        ImageBrush enemySprite = new ImageBrush();
-
-        //integer array which we will use to change the enemy position on screen
-        int[] enemyPosition = {1 ,2 ,3  };
-        // empty integer called score
-        int score = 0;
-
-
+        ImageBrush monsterSprite = new ImageBrush();
 
         public MainWindow()
         {
             InitializeComponent();
+            //set the focus on my canvas from the WPF
+            myCanvas.Focus();
+            // first set the background sprite image
+            playerSprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/H_nekro.png"));
+            monsterSprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/angel.png"));
+            backgroundSprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/background.jpg"));
+            // add the background sprite to all rectangles
+            background.Fill = backgroundSprite;
+            player.Fill=playerSprite;
+            monster_angel.Fill=monsterSprite;
         }
 
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Up && Canvas.GetTop(background) < 460)
+            {
+                Canvas.SetTop(background, Canvas.GetTop(background) + 10);
+                Canvas.SetTop(monster_angel, Canvas.GetTop(monster_angel) + 10);
 
-        }
-
-        private void Canvas_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-        private void StartGame()
-        {
-
-        }
-
-        private void runSprite(double i)
-        {
-
-        }
-
-        private void gameEngine(object sender, EventArgs e)
-        {
-
+            }
+            else if (e.Key == Key.Down && Canvas.GetTop(background) + background.Height > 700)
+            {
+                Canvas.SetTop(background, Canvas.GetTop(background) - 10);
+                Canvas.SetTop(monster_angel, Canvas.GetTop(monster_angel) - 10);
+            }
+            else if (e.Key == Key.Right && Canvas.GetLeft(background) + background.Width > 1000)
+            {
+                Canvas.SetLeft(background, Canvas.GetLeft(background) - 10);
+                Canvas.SetLeft(monster_angel, Canvas.GetLeft(monster_angel) - 10);
+            }
+            else if (e.Key == Key.Left && Canvas.GetLeft(background) <750)
+            {
+                Canvas.SetLeft(background, Canvas.GetLeft(background) + 10);
+                Canvas.SetLeft(monster_angel, Canvas.GetLeft(monster_angel) + 10);
+            }
         }
     }
 }

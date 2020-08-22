@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="1024">
-    <Canvas Name="myCanvas" Focusable="True" KeyDown="Canvas_KeyDown" KeyUp="Canvas_KeyUp" Background="LightBlue">
+        Title="MainWindow" WindowState="Maximized">
+    <Canvas Name="myCanvas" Focusable="True" KeyDown="Canvas_KeyDown" Background="Black">
 
-        <Rectangle Name="background" Height="2145" Width="2180" Fill="Green" />
+        <Rectangle Name="background" Height="2145" Width="2180" Canvas.Left="-250" Canvas.Top="-520"/>
 
-        <Rectangle Name="player" Height="150" Width="150" Fill="Black" Canvas.Top="400" Canvas.Left="400" />
+        <Rectangle Name="player" Height="150" Width="120" Fill="Black" Canvas.Top="500" Canvas.Left="800" />
 
-        <Rectangle Name="monster" Height="150" Width="150" Fill="Aquamarine"  Canvas.Top="400" Canvas.Left="599" />
+        <Rectangle Name="monster_angel" Height="150" Width="90" Fill="Red"  Canvas.Top="500" Canvas.Left="950" />
 
         <Label Name="scoreText" FontSize="22" FontWeight="Bold" Content="Score: 0" />
 
