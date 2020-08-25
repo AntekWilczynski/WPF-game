@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace WPF_Game
 {
@@ -21,17 +20,20 @@ namespace WPF_Game
 
 
         // create new Rect class instance called player hit box and enemy hit box
-        Rect playerHitBox;
-        Rect enemyHitBox;
+        Rect graczHitBox;
+        Rect przeciwnikHitBox;
+        Rect przeszkodaHitBox;
 
 
         ImageBrush playerSprite = new ImageBrush();
         ImageBrush backgroundSprite = new ImageBrush();
         ImageBrush monsterSprite = new ImageBrush();
+        ImageBrush przeszkodaSprite = new ImageBrush();
 
         public MainWindow()
         {
             InitializeComponent();
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
             //set the focus on my canvas from the WPF
             myCanvas.Focus();
             // first set the background sprite image
@@ -40,17 +42,28 @@ namespace WPF_Game
             backgroundSprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/background.jpg"));
             // add the background sprite to all rectangles
             background.Fill = backgroundSprite;
-            player.Fill=playerSprite;
-            monster_angel.Fill=monsterSprite;
+            player.Fill = playerSprite;
+            monster_angel.Fill = monsterSprite;
+            graczHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
+            przeciwnikHitBox = new Rect(Canvas.GetLeft(monster_angel), Canvas.GetTop(monster_angel), monster_angel.Width, monster_angel.Height);
+            przeszkodaHitBox = new Rect(Canvas.GetLeft(przeszkoda), Canvas.GetTop(przeszkoda), przeszkoda.Width, przeszkoda.Height);
         }
-
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                Close();
+        }
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Up && Canvas.GetTop(background) < 460)
+            if (e.Key == Key.Up && Canvas.GetTop(background) < 460 )
             {
                 Canvas.SetTop(background, Canvas.GetTop(background) + 10);
                 Canvas.SetTop(monster_angel, Canvas.GetTop(monster_angel) + 10);
-
+                //if (graczHitBox.IntersectsWith(przeciwnikHitBox))
+                //   { Window win2 = new Window();
+                //    win2.Show(); }
+                // this.Close();
+                
             }
             else if (e.Key == Key.Down && Canvas.GetTop(background) + background.Height > 700)
             {
