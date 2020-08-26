@@ -14,9 +14,9 @@
 
         <Rectangle Name="monster_angel" Height="150" Width="90" Fill="Red"  Canvas.Top="500" Canvas.Left="950" />
 
-        <Rectangle Name="przeszkoda" Height="154" Width="412" Fill="Blue"  Canvas.Top="378" Canvas.Left="727" />
+        <Rectangle Name="przeszkoda" Height="154" Width="412" Canvas.Top="378" Canvas.Left="727" />
 
-        <Label Name="scoreText" FontSize="22" FontWeight="Bold" Content="Score: 0" />
-
+        <Label Name="scoreText" Foreground="Yellow" FontSize="22" FontWeight="Bold" Content="OlaaaH" />
+      
     </Canvas>
 </Window>
