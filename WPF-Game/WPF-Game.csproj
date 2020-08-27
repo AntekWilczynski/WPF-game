@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Creature.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="RandomNumberGenerator.cs" />
     <Compile Include="World.cs" />
@@ -101,13 +102,17 @@
   <ItemGroup>
     <Resource Include="images\angel.png" />
     <Resource Include="images\background.jpg" />
-    <Resource Include="images\H_nekro.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\H_nekro1.png" />
-    <Resource Include="images\H_nekro2.png" />
-    <Resource Include="images\H_nekro3.png" />
-    <Resource Include="images\H_nekro4.png" />
+    <Resource Include="images\hero1.png" />
+    <Resource Include="images\hero2.png" />
+    <Resource Include="images\hero3.png" />
+    <Resource Include="images\hero4.png" />
+    <Resource Include="images\hero5.png" />
+    <Resource Include="images\hero6.png" />
+    <Resource Include="images\hero7.png" />
+    <Resource Include="images\hero8.png" />
+    <Resource Include="images\hero9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
