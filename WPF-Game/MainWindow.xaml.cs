@@ -119,10 +119,7 @@ namespace WPF_Game
                 case 8:
                     graczSprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/Hero8.png"));
                     break;
-                case 9:
-                    graczSprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/Hero9.png"));
-                    break;
-            }
+                          }
             player.Fill = graczSprite;
         }
         private void gameEngine(object sender, EventArgs e)
@@ -131,7 +128,7 @@ namespace WPF_Game
             //  przeszkodaHitBox = new Rect(Canvas.GetLeft(przeszkoda), Canvas.GetTop(przeszkoda), przeszkoda.Width, przeszkoda.Height);
             playerAnimationSpriteCounter += .5;
             runSprite(playerAnimationSpriteCounter);
-            if (playerAnimationSpriteCounter > 5)
+            if (playerAnimationSpriteCounter > 8)
                 playerAnimationSpriteCounter = 1;
 
         }
