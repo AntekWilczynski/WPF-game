@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace WPF_Game
 {
-    class Creature
+    public class Creature
     {
+        public int CurrentHitPoints { get; set; }
+        public int MaximumHitPoints { get; set; }
+        public Creature(int currentHitPoints, int maximumHitPoints)
+        {
+            CurrentHitPoints = currentHitPoints;
+            MaximumHitPoints = maximumHitPoints;
+        }
     }
 }
