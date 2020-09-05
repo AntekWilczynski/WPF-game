@@ -20,7 +20,7 @@ namespace WPF_Game
     {
         Rect graczHitBox;
         Rect przeciwnikHitBox;
-        Rect przeszkodaHitBox;
+        Rect angelHitBox;
 
         DispatcherTimer gameTimer = new DispatcherTimer();
         Random rand = new Random();
@@ -125,11 +125,16 @@ namespace WPF_Game
         private void gameEngine(object sender, EventArgs e)
         {
             graczHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
-            //  przeszkodaHitBox = new Rect(Canvas.GetLeft(przeszkoda), Canvas.GetTop(przeszkoda), przeszkoda.Width, przeszkoda.Height);
-            playerAnimationSpriteCounter += .5;
+            angelHitBox = new Rect(Canvas.GetLeft(monster_angel), Canvas.GetTop(monster_angel), monster_angel.Width, monster_angel.Height);
+            playerAnimationSpriteCounter += 0.5;
             runSprite(playerAnimationSpriteCounter);
+
             if (playerAnimationSpriteCounter > 8)
                 playerAnimationSpriteCounter = 1;
+            if (graczHitBox.IntersectsWith(angelHitBox))
+            {
+                MessageBox.Show("Hello");
+            }
 
         }
     }

@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized">
     <Canvas Name="myCanvas" Focusable="True" KeyDown="Canvas_KeyDown" Background="Black">
-        <Label>
+      
         <Rectangle Name="background" Height="2145" Width="2180" Canvas.Left="-250" Canvas.Top="-520"/>
         
         <Rectangle Name="monster_angel" Height="150" Width="90" Fill="Red"  Canvas.Top="500" Canvas.Left="950" />
-        </Label>
+       
         <Rectangle Name="player" Height="150" Width="120" Fill="Black" Canvas.Top="500" Canvas.Left="800" />
 
     </Canvas>
